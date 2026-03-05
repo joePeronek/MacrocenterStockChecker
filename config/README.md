@@ -1,5 +1,10 @@
-# Configuration Directory
+# Config directory
 
-This folder is reserved for runtime configuration files (product catalogs, source settings, and environment-specific overrides).
+`products.yaml` defines product catalog entries consumed by `check-now`.
 
-Phase 0 only scaffolds the structure. A concrete config schema will be introduced in a later phase.
+Each entry supports:
+- `name` (required)
+- `source` (required, currently `macrocenter`)
+- `url` (required)
+- `sku` (optional)
+- `active` (optional, defaults to `true`)

@@ -1,0 +1,16 @@
+products:
+  - name: "AMD Ryzen 7 7800X3D"
+    source: "macrocenter"
+    sku: "1000D"
+    url: "https://www.microcenter.com/product/amd-ryzen-7-7800x3d"
+    active: true
+  - name: "NVIDIA GeForce RTX 4070"
+    source: "macrocenter"
+    sku: "RTX4070"
+    url: "https://www.microcenter.com/product/nvidia-geforce-rtx-4070"
+    active: true
+  - name: "DDR5 32GB Kit"
+    source: "macrocenter"
+    sku: "DDR5-32"
+    url: "https://www.microcenter.com/product/ddr5-32gb"
+    active: false

@@ -2,67 +2,33 @@
 
 Python-first MVP for collecting stock + price snapshots and persisting historical runs.
 
-## Current status
+## Quick start
 
-Phase 0 foundation is complete:
-- Python package skeleton under `src/`
-- Connector module layout for future store implementations
-- Basic CLI entrypoint
-- Test + lint tooling wired with `pytest` and `ruff`
-- Reserved `config/` directory for runtime configuration
-
-See the roadmap in [`IMPLEMENTATION_PLAN.md`](IMPLEMENTATION_PLAN.md).
-
-## Project layout
-
-```text
-.
-├── config/
-├── src/
-│   └── macrocenter_stock_checker/
-│       ├── cli.py
-│       └── connectors/
-└── tests/
-```
-
-## Local development
-
-### 1) Create and activate a virtual environment
+1. Create virtualenv and install:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-```
-
-### 2) Install the package with dev dependencies
-
-```bash
 pip install -e ".[dev]"
 ```
 
-### 3) Run the placeholder CLI
+2. Run checks:
 
 ```bash
-macrocenter-stock-checker
-macrocenter-stock-checker --version
-```
-
-## Tooling commands
-
-### Format/lint
-
-```bash
-ruff format .
 ruff check .
-```
-
-### Tests
-
-```bash
+ruff format --check .
 pytest
 ```
 
-## Notes
+3. Run a collection pass:
 
-- The current CLI is intentionally minimal and confirms environment wiring.
-- Full collection flow (`check-now`) and connector parsing behavior are planned for later phases.
+```bash
+macrocenter-stock-checker check-now --config config/products.yaml --db-url sqlite+pysqlite:///macrocenter.db
+```
+
+## CLI
+
+- `macrocenter-stock-checker --version`
+- `macrocenter-stock-checker check-now --config <path> --db-url <sqlalchemy-url> --timeout 10`
+
+`check-now` loads product config, fetches/parses pages, writes `products` and `stock_snapshots`, and records `collector_runs` status.
