@@ -1,11 +1,5 @@
-"""Connector implementations."""
+"""Connector interfaces and implementations."""
 
-from .base import BaseConnector, ProductConfig, Snapshot
-from .macrocenter import MacrocenterConnector
+from .base import BaseConnector
 
-__all__ = [
-    "BaseConnector",
-    "ProductConfig",
-    "Snapshot",
-    "MacrocenterConnector",
-]
+__all__ = ["BaseConnector"]
