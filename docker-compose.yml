@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////data/stock_checker.db}
+    command: ["check-now"]
+    volumes:
+      - stock_checker_data:/data
+    restart: "no"
+    healthcheck:
+      test: ["CMD", "python", "-m", "macrocenter_stock_checker.cli", "healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  stock_checker_data:
