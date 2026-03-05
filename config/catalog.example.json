@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "stores": [
+    {
+      "id": "macrocenter-ro",
+      "name": "Macrocenter Romania",
+      "kind": "macrocenter",
+      "base_url": "https://www.macrocenter.ro/",
+      "active": true,
+      "timeout_seconds": 20,
+      "headers": {
+        "User-Agent": "MacrocenterStockChecker/0.1"
+      },
+      "settings": {
+        "region": "ro",
+        "currency": "RON"
+      }
+    },
+    {
+      "id": "demo-secondary",
+      "name": "Demo Secondary Store",
+      "kind": "other_store",
+      "base_url": "https://example-store.invalid/",
+      "active": false
+    }
+  ],
+  "products": [
+    {
+      "id": "makita-drill-dhp482",
+      "name": "Makita DHP482 Cordless Drill",
+      "active": true,
+      "source": {
+        "store_id": "macrocenter-ro",
+        "url": "https://www.macrocenter.ro/masina-de-gaurit-makita-dhp482",
+        "sku": "DHP482",
+        "metadata": {
+          "availability_selector": "#stock-status",
+          "price_selector": ".price-value"
+        }
+      }
+    },
+    {
+      "id": "bosch-gws-750-angle-grinder",
+      "name": "Bosch GWS 750 Angle Grinder",
+      "active": true,
+      "source": {
+        "store_id": "macrocenter-ro",
+        "url": "https://www.macrocenter.ro/polizor-unghiular-bosch-gws-750",
+        "sku": "GWS-750",
+        "metadata": {
+          "availability_selector": "[data-stock]",
+          "price_selector": ".product-price"
+        }
+      }
+    },
+    {
+      "id": "metabo-hammer-drill-sbe-650",
+      "name": "Metabo SBE 650 Hammer Drill",
+      "active": false,
+      "source": {
+        "store_id": "demo-secondary",
+        "url": "https://example-store.invalid/products/metabo-sbe-650",
+        "sku": "SBE-650",
+        "metadata": {
+          "notes": "disabled until this source connector is implemented"
+        }
+      }
+    }
+  ]
+}
