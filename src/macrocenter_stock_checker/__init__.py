@@ -1,0 +1,1 @@
+"""Macrocenter stock checker package."""
