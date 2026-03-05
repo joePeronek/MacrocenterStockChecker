@@ -1,0 +1,16 @@
+{
+  "price": [
+    {"raw": "1.999,99 RON", "expected": "1999.99"},
+    {"raw": "1,999.99", "expected": "1999.99"},
+    {"raw": "2 499,00 lei", "expected": "2499.00"},
+    {"raw": "129", "expected": "129"}
+  ],
+  "stock": [
+    {"raw": "In Stock", "expected": true},
+    {"raw": "Ready to ship tomorrow", "expected": true},
+    {"raw": "Stoc epuizat", "expected": false},
+    {"raw": "Unavailable", "expected": false}
+  ],
+  "invalid_price": ["", "N/A", "price unknown"],
+  "invalid_stock": ["", "check in store", "unknown state"]
+}
