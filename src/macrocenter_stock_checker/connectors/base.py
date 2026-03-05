@@ -3,7 +3,20 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from decimal import Decimal
 from typing import Any
+
+
+@dataclass(slots=True)
+class ParsedSnapshot:
+    """Normalized snapshot payload returned by connectors."""
+
+    in_stock: bool
+    stock_text: str | None
+    price: Decimal | None
+    currency: str | None
+    raw_payload: dict[str, Any] | None
 
 
 class BaseConnector(ABC):
@@ -16,5 +29,5 @@ class BaseConnector(ABC):
         """Fetch the raw source payload for a product descriptor."""
 
     @abstractmethod
-    def parse(self, raw_payload: Any) -> dict[str, Any]:
+    def parse(self, raw_payload: Any) -> ParsedSnapshot:
         """Parse a raw payload into normalized snapshot fields."""
