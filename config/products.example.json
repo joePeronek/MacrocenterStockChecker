@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Example Product",
+    "sku": "ABC-123",
+    "source": "macrocenter",
+    "url": "https://example.test/product.json",
+    "active": true
+  }
+]
