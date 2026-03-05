@@ -5,9 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "macrocenter-stock-checker"
 version = "0.1.0"
-description = "Stock and price snapshot collector"
+description = "Container-friendly stock and price snapshot collector MVP"
+readme = "README.md"
 requires-python = ">=3.12"
+authors = [{ name = "MacrocenterStockChecker Contributors" }]
 dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "ruff>=0.6.0",
+]
 
 [project.scripts]
 macrocenter-stock-checker = "macrocenter_stock_checker.cli:main"
@@ -19,4 +27,13 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
